@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #232526 0%, #414345 100%), url('https://www.python.org/static/community_logos/python-logo-generic.svg');
+            background-size: cover, 300px;
+            background-position: center, center;
+            background-repeat: no-repeat, repeat;
+            background-blend-mode: overlay;
+            color: #fff;
+            min-height: 100vh;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 10px 0 490px;
+        }
+        nav ul {
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        nav ul a:hover {
+            color: #ffd700;
+        }
+        nav h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: rgba(30, 30, 40, 0.95);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            padding: 40px 30px 30px 30px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .avatar {
+            margin-top: 50px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffd700;
+            margin-bottom: 18px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            letter-spacing: 2px;
+        }
+        h2 {
+            color: #ffd700;
+            font-size: 1.3rem;
+            margin: 0 0 18px 0;
+        }
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 22px;
+            margin-bottom: 30px;
+        }
+        .social a {
+            color: #ffd700;
+            font-size: 1.5rem;
+            transition: color 0.2s, transform 0.2s;
+        }
+        .social a:hover {
+            color: #4f8cff;
+            transform: scale(1.2);
+        }
+        .about {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #e0e0e0;
+        }
+        .section-title {
+            color: #ffd700;
+            font-size: 2rem;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .project {
+            background: #232526;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(79,140,255,0.08);
+            width: 300px;
+            padding: 22px 18px 18px 18px;
+            color: #fff;
+            text-align: left;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 8px 32px rgba(79,140,255,0.18);
+        }
+        .project img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .project-title {
+            color: #ffd700;
+            font-size: 1.1rem;
+            margin: 0 0 8px 0;
+        }
+        .project-desc {
+            color: #e0e0e0;
+            font-size: 0.98rem;
+            margin-bottom: 10px;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .skill {
+            background: #4f8cff;
+            color: #fff;
+            border-radius: 20px;
+            padding: 8px 22px;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(79,140,255,0.12);
+        }
+        .contact {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .contact input, .contact textarea {
+            width: 90%;
+            max-width: 400px;
+            margin: 10px 0;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #4f8cff44;
+            font-size: 1rem;
+            background: #232526;
+            color: #fff;
+        }
+        .contact textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .contact button {
+            background: linear-gradient(90deg, #0a096e 50%, #ffd700 100%);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 2px 8px rgba(79,140,255,0.12);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .contact button:hover {
+            background: linear-gradient(90deg, #ffd700 50%, #0a096e 100%);
+            transform: scale(1.05);
+        }
+        @media (max-width: 900px) {
+            .container {
+                padding: 10px 2vw;
+            }
+            .projects {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbt">
+            <nav>
+                <ul type="none">
+                    <a href="#aa"><li>HOME</li></a>
+                    <a href="#bb"><li>PROJECT </li></a>
+                    <a href="#cc"><li>SKILLS</li></a>
+                    <a href="#dd"><li>EDUCATION</li></a>
+                    <a href="#ee"><li>ACHIEVEMENTS</li></a>
+                    <a href="#ff"><li>CONTACT</li></a>
+                </ul>
+            </nav>
+        </div>
+        <header>
+            <img src="C:\Users\Admin\OneDrive\Desktop\583e806f-ce30-43f1-9958-33ff2760001b.jpg" alt="Profile" class="avatar">
+            <h1 id="aa">Mohammed Abdullah B</h1>
+            <h2>Full Stack Developer</h2>
+            <h3>mohammed20bma@gmail.com</h3>
+            <div class="social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </header>
+        <section class="about">
+            <p>Hi! I'm Mohammed Abdullah, a passionate Full Stack Developer with experience in building modern web applications using the latest technologies. I love to solve problems, design beautiful UIs, and bring ideas to life through code.</p>
+        </section>
+        <div class="section-title" id="bb">Projects</div>
+        <section class="projects">
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Project 1">
+                <div class="project-title">Personal Portfolio Website</div>
+                <div class="project-desc">A responsive and interactive portfolio to showcase my skills, projects, and contact information. Built with HTML, CSS, and JavaScript.</div>
+            </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Project 2">
+                <div class="project-title">Library Website</div>
+                <div class="project-desc">A full-featured library web site with admin and student authentication, administration management, and student side borrow and return. Built with python,Django and mongodb .</div>
+            </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Project 3">
+                <div class="project-title">Blog Platform</div>
+                <div class="project-desc">A modern blog platform with markdown support, comments, and admin dashboard. Built with Django and Bootstrap.</div>
+            </div>
+        </section>
+        <div class="section-title" id="cc">Skills</div>
+        <section class="skills">
+            <div class="skill">HTML5</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Python</div>
+            <div class="skill">Django</div>
+            <div class="skill">MongoDB</div>  
+        </section> 
+        <div class="section-title" id="dd">Educational Qualification</div>
+        <section class="education" style="margin-bottom:40px;">
+            <ul style="list-style:none;padding:0;max-width:600px;margin:0 auto;">
+                 <li style="background:#232526;border-radius:12px;padding:18px 22px;margin-bottom:16px;box-shadow:0 2px 12px rgba(79,140,255,0.08);display:flex;align-items:center;gap:18px;">
+                    <i class="fa-solid fa-graduation-cap" style="color:#ffd700;font-size:1.6rem;"></i>
+                    <div>
+                        <strong>Master Of Computer Applications(MCA)</strong><br>
+                        <span style="color:#ffd700;">MIET Arts And Science College, Trichy</span> &mdash; 2023 - 2025
+                    </div>
+                </li>
+                <li style="background:#232526;border-radius:12px;padding:18px 22px;margin-bottom:16px;box-shadow:0 2px 12px rgba(79,140,255,0.08);display:flex;align-items:center;gap:18px;">
+                    <i class="fa-solid fa-graduation-cap" style="color:#ffd700;font-size:1.6rem;"></i>
+                    <div>
+                        <strong>Bachelor of Computer Science </strong><br>
+                        <span style="color:#ffd700;">MIET Arts And Science College, Trichy</span> &mdash; 2020 - 2023
+                    </div>
+                </li>
+                <li style="background:#232526;border-radius:12px;padding:18px 22px;margin-bottom:16px;box-shadow:0 2px 12px rgba(79,140,255,0.08);display:flex;align-items:center;gap:18px;">
+                    <i class="fa-solid fa-graduation-cap" style="color:#ffd700;font-size:1.6rem;"></i>
+                    <div>
+                        <strong>Higher Secondary School Certificate(HSC)</strong><br>
+                        <span style="color:#ffd700;">SBIOA Matriculation Higher Secondary School, Trichy</span> &mdash; 2018 - 2019
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <div class="section-title" id="ee">Certified Achievements</div>
+        <section class="achievements" style="margin-bottom:40px;">
+            <ul style="list-style:none;padding:0;max-width:600px;margin:0 auto;">
+                <li style="background:#232526;border-radius:12px;padding:18px 22px;margin-bottom:16px;box-shadow:0 2px 12px rgba(79,140,255,0.08);display:flex;align-items:center;gap:18px;">
+                    <i class="fa-solid fa-certificate" style="color:#ffd700;font-size:1.6rem;"></i>
+                    <div>
+                        <strong>Python for Everybody Specialization</strong><br>
+                        <span style="color:#ffd700;">T4TEQ software solution</span> &mdash;2025                    </div>
+                </li>
+                <li style="background:#232526;border-radius:12px;padding:18px 22px;margin-bottom:16px;box-shadow:0 2px 12px rgba(79,140,255,0.08);display:flex;align-items:center;gap:18px;">
+                    <i class="fa-solid fa-certificate" style="color:#ffd700;font-size:1.6rem;"></i>
+                    <div>
+                        <strong>Full Stack Web Development with Django</strong><br>
+                        <span style="color:#ffd700;">T4TEQ software solution</span> &mdash; 2025
+                    </div>
+                </li>
+                <li style="background:#232526;border-radius:12px;padding:18px 22px;margin-bottom:16px;box-shadow:0 2px 12px rgba(79,140,255,0.08);display:flex;align-items:center;gap:18px;">
+                    <i class="fa-solid fa-certificate" style="color:#ffd700;font-size:1.6rem;"></i>
+                    <div>
+                        <strong>FrontEnd Web Development with Html,Css,JavaScript  </strong><br>
+                        <span style="color:#ffd700;">T4TEQ software solution</span> &mdash; 2025
+                    </div>
+                </li>
+            </ul>
+        </section>
+        
+        <div class="section-title" id="ff">Contact</div>
+        <section class="contact">
+            <form>
+                <input type="text" placeholder="Your Name" >
+                <br>
+                <input type="email" placeholder="Your Email" >
+                <br>
+                <textarea placeholder="Your Message" ></textarea>
+                <br>
+                <a href="#"><button type="submit">Send Message</button></a>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
